@@ -19,5 +19,10 @@ bot.on("message", message => {
     console.log(command);
     console.log(args);
 });
+bot.on('message', message => {
+    if (message.content === 'ping') {
+      message.reply('pong');
+    }
+});
 
-bot.login(botSettings.token);
+bot.login(process.env.BOT_TOKEN);
