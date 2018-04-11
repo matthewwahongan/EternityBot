@@ -19,8 +19,12 @@ bot.on("message", async (message) => {
     if(!command.startsWith(prefix)) return;
 
     if(command === `${prefix}userinfo`) {
-      console.log("apakabar");
-    }
+      let embed = new Discord.RichEmbed()
+          .setAuthor(message.author.username);
+          .setDescription("Hallo ini user Info");
+
+      message.channel.sendEmbed(embed);
+     }
 });
 
 bot.login(process.env.BOT_TOKEN);
