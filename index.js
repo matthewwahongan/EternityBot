@@ -22,8 +22,8 @@ bot.on("message", async (message) => {
     if(command === `${prefix}version`) {
       let embed = new Discord.RichEmbed()
           .setColor('RANDOM')
-          .setAuthor("Version")
-          .setDescription(`Bot`);
+          .setAuthor("EternityBOT")
+          .setDescription(`Bot Version: Alpha 0.1`+ `hallo`);
 
       message.channel.sendEmbed(embed);
      }
