@@ -15,13 +15,14 @@ bot.on("message", async (message) => {
     let MessageArray = message.content.split(" ");
     let command = MessageArray[0];
     let args =  MessageArray.slice(1);
+    let nama = message.author.username;
 
     if(!command.startsWith(prefix)) return;
 
     if(command === `${prefix}userinfo`) {
       let embed = new Discord.RichEmbed()
           .setAuthor(message.author.username)
-          .setDescription("Hallo ini user Info");
+          .setDescription(`hallo ${nama} apakabar bosque`);
 
       message.channel.sendEmbed(embed);
      }
