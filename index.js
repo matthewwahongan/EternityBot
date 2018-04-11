@@ -8,7 +8,7 @@ bot.on("ready", async () => {
     console.log('I\'m Online\nI\'m Online');
     bot.user.setGame("Eternity Bot | Development");
 });
-bot.on("message", async message => {
+bot.on("message", async (message) => {
     if(message.author.bot) return;
     if(message.channel.type === "dm") return;
 
@@ -16,8 +16,8 @@ bot.on("message", async message => {
     let command = MessageArray[0];
     let args =  MessageArray.slice(1);
 
-    if(command === "ping"){
-      return message.channel.send("Hallo!");
+    if(message.content == "ping"){
+      return message.channel.sendMessage("Hallo!");
     };
 });
 
