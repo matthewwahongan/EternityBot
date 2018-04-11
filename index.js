@@ -23,8 +23,9 @@ bot.on("message", async (message) => {
       let embed = new Discord.RichEmbed()
           .setColor('RANDOM')
           .setAuthor("Bot Version")
-          .setDescription(`Alpha 0.1 `)
-          .addField("Creator","3t3Rn1tyW15DOM");
+          .setDescription(`Alpha 0.1`)
+          .addField("Developer","3t3Rn1tyW15DOM")
+          .addField("Waktu Dibuat", message.author.createdAt);
 
       message.channel.sendEmbed(embed);
      }
