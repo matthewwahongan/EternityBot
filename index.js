@@ -35,28 +35,37 @@ bot.on("message", async (message) => {
      if(command === `${prefix}mute`) {
        if(!message.member.hasPermission("MUTE_MEMBERS")) return message.channel.sendMessage("anda tidak memiliki izin untuk command ini!");
 
-       let toMute = message.mentions.users.first() || message.guild.members.get(args[0]);
+       let toMute = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
        if(!toMute) return message.channel.sendMessage("Nama atau ID yang anda gunakan tidak Valid atau salah");
 
-       let role;
-       try{
-          role =  await message.guild.createRole({
-            name: "Muted Player",
-            color: "BLACK",
-            permissions: [],
-          });
+       let role = message.guildroles.find(r => r.name === "Muted Player");
+      if(!role) {
+        try{
+           role =  await message.guild.createRole({
+             name: "Muted Player",
+             color: "BLACK",
+             permissions: [],
+           });
 
-          message.guild.channels.forEach(async (channel, id) => {
-            await channel.overwritePermissions(role, {
-              ADD_REACTIONS: false,
-              SEND_MESSAGES: false
-            });
-          })
-       } catch(e) {
-         console.log(e.stack);
-       }
-     }
+           message.guild.channels.forEach(async (channel, id) => {
+             await channel.overwritePermissions(role, {
+               ADD_REACTIONS: false,
+               SEND_MESSAGES: false
+             });
+           })
+        } catch(e) {
+          console.log(e.stack);
+        }
+      }
 
+      if(toMute.roles.has(role.id)) return message.channel.sendMessage("Sudah di mute sebelumnya!");
+
+
+
+      await toMute.addRole(role);
+      message.channel.sendMessage(`EternityBot Berhasil melakukan misi MUTE!`);
+      return;
+      }
 });
 
 
