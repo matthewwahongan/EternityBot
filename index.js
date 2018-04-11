@@ -37,32 +37,6 @@ bot.on("message", async (message) => {
 
        let toMute = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
        if(!toMute) return message.channel.sendMessage("Nama atau ID yang anda gunakan tidak Valid atau salah");
-
-       let role = message.guild.roles.find(r => r.name === "Muted Player");
-        try{
-           role =  await message.guild.createRole({
-             name: "Muted Player",
-             color: "#ff0000",
-             permissions: []
-           });
-
-           message.guild.channels.forEach(async (channel, id) => {
-             await channel.overwritePermissions(role, {
-               ADD_REACTIONS: false,
-               SEND_MESSAGES: false
-             });
-           });
-        } catch(e) {
-          console.log(e.stack);
-        }
-      }
-
-      if(toMute.roles.has(role.id)) return message.channel.sendMessage("Sudah di mute sebelumnya!");
-
-      await toMute.addRole(role);
-      message.channel.sendMessage(`EternityBot Berhasil melakukan misi MUTE!`);
-
-      return;
       }
 });
 
