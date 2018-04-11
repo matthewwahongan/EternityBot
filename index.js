@@ -1,6 +1,6 @@
 const botSettings = require('./settings.json');
 const Discord = require('discord.js');
-
+const prefix = botSettings.prefix;
 const bot = new Discord.Client({disableEveryone: true});
 
 
@@ -16,9 +16,11 @@ bot.on("message", async (message) => {
     let command = MessageArray[0];
     let args =  MessageArray.slice(1);
 
-    if(message.content == "ping"){
-      return message.channel.sendMessage("Hallo!");
-    };
+    if(!command.startsWith(prefix)) return;
+
+    if(command === `${prefix}userinfo`) {
+      console.log("apakabar");
+    }
 });
 
 bot.login(process.env.BOT_TOKEN);
