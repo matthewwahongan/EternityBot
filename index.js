@@ -38,7 +38,7 @@ bot.on("message", async (message) => {
        let toMute = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
        if(!toMute) return message.channel.sendMessage("Nama atau ID yang anda gunakan tidak Valid atau salah");
 
-       let role = message.guildroles.find(r => r.name === "Muted Player");
+       let role = message.guild.roles.find(r => r.name === "Muted Player");
       if(!role) {
         try{
            role =  await message.guild.createRole({
