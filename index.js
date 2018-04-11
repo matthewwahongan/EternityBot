@@ -12,12 +12,11 @@ bot.on("message", async message => {
     if(message.author.bot) return;
     if(message.channel.type === "dm") return;
 
-    let prefix = botSettings.prefix;
     let MessageArray = message.content.split("");
     let command = MessageArray[0];
     let args =  MessageArray.slice(1);
 
-    if(command === "!hallo"){
+    if(command === "ping"){
       return message.channel.send("Hallo!");
     };
 });
