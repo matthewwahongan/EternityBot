@@ -52,7 +52,7 @@ bot.on("message", async (message) => {
                ADD_REACTIONS: false,
                SEND_MESSAGES: false
              });
-           })
+           });
         } catch(e) {
           console.log(e.stack);
         }
@@ -60,10 +60,9 @@ bot.on("message", async (message) => {
 
       if(toMute.roles.has(role.id)) return message.channel.sendMessage("Sudah di mute sebelumnya!");
 
-
-
       await toMute.addRole(role);
       message.channel.sendMessage(`EternityBot Berhasil melakukan misi MUTE!`);
+
       return;
       }
 });
