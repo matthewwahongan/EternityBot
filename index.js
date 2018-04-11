@@ -20,7 +20,7 @@ bot.on("message", async (message) => {
 
     if(command === `${prefix}userinfo`) {
       let embed = new Discord.RichEmbed()
-          .setAuthor(message.author.username);
+          .setAuthor(message.author.username)
           .setDescription("Hallo ini user Info");
 
       message.channel.sendEmbed(embed);
