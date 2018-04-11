@@ -29,9 +29,9 @@ bot.on("message", async (message) => {
           .addField("Waktu Dibuat", message.author.createdAt);
 
       message.channel.sendEmbed(embed);
-     }
-
-     return;
+        
+     return; 
+    }
 });
 
 
