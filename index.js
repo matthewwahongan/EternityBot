@@ -44,7 +44,7 @@ bot.on("message", async (message) => {
            role =  await message.guild.createRole({
              name: "Muted Player",
              color: "BLACK",
-             permissions: [],
+             permissions: []
            });
 
            message.guild.channels.forEach(async (channel, id) => {
