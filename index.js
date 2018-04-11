@@ -29,9 +29,34 @@ bot.on("message", async (message) => {
           .addField("Waktu Dibuat", message.author.createdAt);
 
       message.channel.sendEmbed(embed);
-        
-     return; 
-    }
+
+      return;
+     }
+     if(command === `${prefix}mute`) {
+       if(!message.member.hasPermission("MUTE_MEMBERS")) return message.channel.sendMessage("anda tidak memiliki izin untuk command ini!");
+
+       let toMute = message.mentions.users.first() || message.guild.members.get(args[0]);
+       if(!toMute) return message.channel.sendMessage("Nama atau ID yang anda gunakan tidak Valid atau salah");
+
+       let role;
+       try{
+          role =  await message.guild.createRole({
+            name: "Muted Player",
+            color: "BLACK",
+            permissions: [],
+          });
+
+          message.guild.channels.forEach(async (channel, id) => {
+            await channel.overwritePermissions(role, {
+              ADD_REACTIONS: false,
+              SEND_MESSAGES: false
+            });
+          })
+       } catch(e) {
+         console.log(e.stack);
+       }
+     }
+
 });
 
 
