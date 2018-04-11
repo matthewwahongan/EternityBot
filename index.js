@@ -43,7 +43,7 @@ bot.on("message", async (message) => {
         try{
            role =  await message.guild.createRole({
              name: "Muted Player",
-             color: "BLACK",
+             color: "#ff0000",
              permissions: []
            });
 
