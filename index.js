@@ -6,7 +6,7 @@ const bot = new Discord.Client({disableEveryone: true});
 
 bot.on("ready", async () => {
     console.log('I\'m Online\nI\'m Online');
-    bot.user.setGame("Eternity Bot | Development");
+    bot.user.setGame("Eternity Bot");
 });
 bot.on("message", async message => {
     if(message.author.bot) return;
