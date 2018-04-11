@@ -32,10 +32,6 @@ bot.on("message", async (message) => {
      }
 
      return;
-   if(command === `${prefix}ban ${args} ${args2}`) {
-     guild.ban(`${args}`, reason: `${args2}`)
-      .then(`${nama} telah di ban dari server ini`)
-   }
 });
 
 
