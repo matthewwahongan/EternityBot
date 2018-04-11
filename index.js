@@ -19,10 +19,10 @@ bot.on("message", async (message) => {
 
     if(!command.startsWith(prefix)) return;
 
-    if(command === `${prefix}userinfo`) {
+    if(command === `${prefix}version`) {
       let embed = new Discord.RichEmbed()
-          .setAuthor(message.author.username)
-          .setDescription(`hallo ${nama} apakabar bosque`);
+          .setAuthor("Version")
+          .setDescription(`Bot`);
 
       message.channel.sendEmbed(embed);
      }
