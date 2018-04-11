@@ -33,7 +33,7 @@ bot.on("message", async (message) => {
       return;
      }
      if(command === `${prefix}mute`) {
-       if(!message.member.hasPermission("MUTE_MEMBERS")) return message.channel.sendMessage("anda tidak memiliki izin untuk command ini!");
+       if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.sendMessage("anda tidak memiliki izin untuk command ini!");
 
        let toMute = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
        if(!toMute) return message.channel.sendMessage("Nama atau ID yang anda gunakan tidak Valid atau salah");
