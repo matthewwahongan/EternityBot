@@ -22,11 +22,13 @@ bot.on("message", async (message) => {
     if(command === `${prefix}version`) {
       let embed = new Discord.RichEmbed()
           .setColor('RANDOM')
-          .setAuthor("EternityBOT")
-          .setDescription(`Bot Version: Alpha 0.1 \ hallo`);
+          .setAuthor("Bot Version")
+          .setDescription(`Alpha 0.1 `)
+          .addField("Creator","3t3Rn1tyW15DOM");
 
       message.channel.sendEmbed(embed);
      }
 });
+
 
 bot.login(process.env.BOT_TOKEN);
