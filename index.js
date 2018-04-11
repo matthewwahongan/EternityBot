@@ -18,7 +18,7 @@ bot.on("message", async (message) => {
 
     if(!command.startsWith(prefix)) return;
 
-    if(command === `${prefix}userinfo`) {
+    if(command === "!uerinfo") {
       let embed = new Discord.RichEmbed()
           .setAuthor(message.author.username)
           .setDescription("Hallo ini user Info");
